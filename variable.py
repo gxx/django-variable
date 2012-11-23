@@ -79,7 +79,7 @@ class LazyVariable(object):
         self._context = context
 
     def _replace_django_tags(self, logic):
-        return logic.replace('{[', '{%').replace(']}', '%}')
+        return logic.replace('{[', '{%').replace(']}', '%}').replace('\\"', '"')
 
     def _resolve_value(self, context):
         if settings.TEMPLATE_DEBUG:
